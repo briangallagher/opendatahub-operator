@@ -67,6 +67,10 @@ type Components struct {
 	// MLflow Operator component configuration.
 	MLflowOperator componentApi.DSCMLflowOperator `json:"mlflowoperator,omitempty"`
 
+	// Data Catalog component configuration. When Managed, creates a shared catalog
+	// FeatureStore CR with spec.catalog.enabled: true in the platform namespace.
+	DataCatalog componentApi.DSCDataCatalog `json:"datacatalog,omitempty"`
+
 	// Trainer component configuration.
 	Trainer componentApi.DSCTrainer `json:"trainer,omitempty"`
 
@@ -111,6 +115,9 @@ type ComponentsStatus struct {
 
 	// MLflow Operator component status.
 	MLflowOperator componentApi.DSCMLflowOperatorStatus `json:"mlflowoperator,omitempty"`
+
+	// Data Catalog component status.
+	DataCatalog componentApi.DSCDataCatalogStatus `json:"datacatalog,omitempty"`
 
 	// Trainer component status.
 	Trainer componentApi.DSCTrainerStatus `json:"trainer,omitempty"`
