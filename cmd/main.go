@@ -77,6 +77,7 @@ import (
 	serviceApi "github.com/opendatahub-io/opendatahub-operator/v2/api/services/v1alpha1"
 	"github.com/opendatahub-io/opendatahub-operator/v2/internal/controller/components/dashboard"
 	"github.com/opendatahub-io/opendatahub-operator/v2/internal/controller/components/datasciencepipelines"
+	"github.com/opendatahub-io/opendatahub-operator/v2/internal/controller/components/datacatalog"
 	"github.com/opendatahub-io/opendatahub-operator/v2/internal/controller/components/feastoperator"
 	"github.com/opendatahub-io/opendatahub-operator/v2/internal/controller/components/kserve"
 	"github.com/opendatahub-io/opendatahub-operator/v2/internal/controller/components/kueue"
@@ -117,6 +118,7 @@ var (
 
 	existingComponents = map[string]cr.ComponentHandler{
 		componentApi.DashboardComponentName:            dashboard.NewHandler(),
+		componentApi.DataCatalogComponentName:           datacatalog.NewHandler(),
 		componentApi.DataSciencePipelinesComponentName: datasciencepipelines.NewHandler(),
 		componentApi.FeastOperatorComponentName:        feastoperator.NewHandler(),
 		componentApi.KserveComponentName:               kserve.NewHandler(),

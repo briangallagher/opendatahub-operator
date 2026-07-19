@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
+	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	componentApi "github.com/opendatahub-io/opendatahub-operator/v2/api/components/v1alpha1"
 	"github.com/opendatahub-io/opendatahub-operator/v2/pkg/cluster"
@@ -85,11 +85,11 @@ func createFeatureStoreCR(ctx context.Context, rr *types.ReconciliationRequest) 
 		},
 	}
 
-	fs.SetGroupVersionKind(metav1.GroupVersionKind{
+	fs.SetGroupVersionKind(schema.GroupVersionKind{
 		Group:   "feast.dev",
 		Version: "v1",
 		Kind:    "FeatureStore",
-	}.ToAPIVersionAndKind())
+	})
 
 	return rr.AddResources(fs)
 }
